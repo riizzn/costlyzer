@@ -3,10 +3,10 @@
 /* Theme configuration */
 @theme {
   /* Colors */
-  --color-primary: #e43030;
-  --color-primary-orange: #d48d3b;
-  --color-primary-green: #3e9242;
-  --color-secondary: #282828;
+  --color-primary: #511764;           /* Deep Purple */
+  --color-primary-pink: #C957BC;      /* Pinkish Purple */
+  --color-primary-yellow: #FFC872;    /* Warm Yellow-Orange */
+  --color-secondary: #282828;         /* Dark Gray (kept) */
   --color-gray-200: #eaecf0;
   --color-gray-300: #d0d5dd;
   --color-gray-500: #667085;
@@ -17,6 +17,7 @@
   --color-white-200: #edf0f8;
   --color-black-100: #3d4258;
   --color-neutral-black: #23263b;
+   --color-darkpurple: #2c0d36;  
 
   /* Shadows */
   --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
@@ -48,11 +49,11 @@ body {
   }
 
   .head-text {
-    @apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-900;
+    @apply mt-3 text-6xl leading-[72px] font-bold tracking-[-2.2px] text-gray-900;
   }
 
   .section-text {
-    @apply text-secondary text-[32px] font-semibold;
+    @apply text-secondary text-[32px] font-semibold tracking-tight;
   }
 
   .small-text {
@@ -170,10 +171,10 @@ body {
 
   /* SEARCHBAR */
   .searchbar-input {
-    @apply flex-1 min-w-[200px] w-full p-3 border border-gray-300 rounded-lg shadow-xs text-base text-gray-500 focus:outline-none;
+    @apply flex-1 min-w-[200px] w-full p-3 border  border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500/20
   }
 
   .searchbar-btn {
-    @apply bg-gray-900 border border-gray-900 rounded-lg shadow-xs px-5 py-3 text-white text-base font-semibold hover:opacity-90 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40;
+    @apply p-3 min-w-[200px]  bg-darkpurple text-white rounded-md  hover:bg-gray-800 transition-colors shadow-xs
   }
 }
