@@ -41,22 +41,22 @@ const HeroCarousel = () => {
   }, [api]);
 
   return (
-    <div className="relative">
+    <div className="hero-carousel">
       <Carousel
         setApi={setApi}
         opts={{
           align: "start",
           loop: true,
         }}
-        className="w-full max-w-4xl mx-auto px-4 md:px-0"
+        className="w-full max-w-4xl mx-auto px-4 md:px-0 "
       >
-        <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6">
+        <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6 ">
           {heroImages.map((o, index) => (
             <CarouselItem
               key={index}
               className="pl-2 sm:pl-4 md:pl-6 basis-full flex justify-center items-center"
             >
-              <div className="p-3 bg-white border border-gray-200 shadow-sm rounded-xl">
+              <div className="p-12 bg-white border border-gray-200 shadow-sm rounded-xl">
                 <Image
                   src={o.imgUrl}
                   width={300}
@@ -91,6 +91,7 @@ const HeroCarousel = () => {
       <div className="text-center text-xs text-muted-foreground mt-2 sm:hidden">
         Swipe to view more
       </div>
+      <Image src="assets/icons/hand-drawn-arrow.svg" alt="arrow"  width={175} height={175} className=" max-lg:hidden absolute -left-[15%] bottom-[5%] z-0 "/>
     </div>
   );
 };
