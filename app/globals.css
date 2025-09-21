@@ -6,10 +6,10 @@
 /* Theme configuration */
 @theme {
   /* Colors */
-  --color-primary: #511764;           /* Deep Purple */
-  --color-primary-pink: #C957BC;      /* Pinkish Purple */
-  --color-primary-yellow: #FFC872;    /* Warm Yellow-Orange */
-  --color-secondary: #282828;         /* Dark Gray (kept) */
+  --color-primary: #511764; /* Deep Purple */
+  --color-primary-pink: #c957bc; /* Pinkish Purple */
+  --color-primary-yellow: #ffc872; /* Warm Yellow-Orange */
+  --color-secondary: #282828; /* Dark Gray (kept) */
   --color-gray-200: #eaecf0;
   --color-gray-300: #d0d5dd;
   --color-gray-500: #667085;
@@ -20,7 +20,8 @@
   --color-white-200: #edf0f8;
   --color-black-100: #3d4258;
   --color-neutral-black: #23263b;
-   --color-darkpurple: #2c0d36;  
+  --color-darkpurple: #2c0d36;
+  --color-lilac: #efe3ee;
 
   /* Shadows */
   --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
@@ -68,7 +69,7 @@ body {
   }
 
   .hero-carousel {
-    @apply relative sm:px-10 py-5 sm:pt-20 pb-5 max-w-[560px] h-[700px] w-full bg-[#efe3ee] rounded-[30px] sm:mx-auto;
+    @apply relative sm:px-10 py-5 sm:pt-20 pb-5 max-w-[560px] h-[700px] w-full bg-lilac rounded-[30px] sm:mx-auto;
   }
 
   .carousel {
@@ -97,7 +98,7 @@ body {
   }
 
   .product-image {
-    @apply flex-grow xl:max-w-[50%] max-w-full py-16 border border-[#CDDBFF] rounded-[17px];
+    @apply flex-grow lg:max-w-[50%] max-w-full py-16 border border-[#CDDBFF] rounded-[17px];
   }
 
   .product-info {
@@ -174,11 +175,11 @@ body {
 
   /* SEARCHBAR */
   .searchbar-input {
-    @apply flex-1 min-w-[200px] w-full p-3 border  border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500/20
+    @apply flex-1 min-w-[200px] w-full p-3 border  border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500/20;
   }
 
   .searchbar-btn {
-    @apply p-3 min-w-[200px]  bg-darkpurple text-white rounded-md  hover:bg-gray-800 transition-colors shadow-xs
+    @apply p-3 min-w-[200px]  bg-darkpurple text-white rounded-md  hover:bg-gray-800 transition-colors shadow-xs;
   }
 }
 
