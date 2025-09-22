@@ -15,11 +15,7 @@ const ProductCard = ({ product }: Props) => {
     >
       {/* Image Section */}
       <div className="relative flex items-center justify-center bg-white-200 rounded-xl overflow-hidden">
-        {product.discountRate && (
-          <span className="absolute top-3 left-3 bg-primary-pink text-white text-xs font-semibold px-2 py-1 rounded-full shadow-md">
-            -{product.discountRate}%
-          </span>
-        )}
+      
         <Image
           src={product.image}
           alt={product.title}

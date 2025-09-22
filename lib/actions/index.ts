@@ -1,6 +1,6 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { PriceHistoryItem } from "@/types";
+import { PriceHistoryItem, User } from "@/types";
 import Product from "../models/product.model";
 import { connectToDB } from "../mongoose";
 import { scrapeAmazonProduct } from "../scraper";
@@ -68,11 +68,31 @@ export async function getSimilarProducts(productId: string) {
     const currentProduct = await Product.findById(productId);
     if (!currentProduct) return null;
     const similarProducts = await Product.find({
-      _id:{$ne : productId},
-  }).limit(3);
+      _id: { $ne: productId },
+    }).limit(3);
 
     return similarProducts;
   } catch (error) {
     console.log("error getting similar products", error);
+  }
+}
+export async function addUserEmailToProduct(
+  productId: string,
+  userEmail: string
+) {
+  try {
+    connectToDB();
+    const product = await Product.findById(productId);
+    if (!product) return;
+    const userExists = product.users.some(
+      (user: User) => user.email === userEmail
+    );
+    if (!userExists) {
+      product.user.push({ email: userEmail });
+      await product.save();
+      const emailContent=generateEmailBody(product,'WELCOME')
+    }
+  } catch (error) {
+    console.log("error updating", error);
   }
 }

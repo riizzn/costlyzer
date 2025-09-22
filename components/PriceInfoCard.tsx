@@ -7,14 +7,34 @@ interface Props {
 }
 
 const PriceInfoCard = ({ title, iconSrc, value }: Props) => {
+  // Determine shadow color based on title for visual hierarchy
+  const getShadowStyle = (title: string) => {
+    switch (title.toLowerCase()) {
+      case 'current price':
+        return 'shadow-[3px_0_0_0_rgba(81,23,100,0.3)] bg-gradient-to-r from-primary/5 to-primary/10';
+      case 'average price':
+        return 'shadow-[3px_0_0_0_rgba(59,130,246,0.3)] bg-gradient-to-r from-blue-50 to-blue-100';
+      case 'highest price':
+        return 'shadow-[3px_0_0_0_rgba(239,68,68,0.3)] bg-gradient-to-r from-red-50 to-red-100';
+      case 'lowest price':
+        return 'shadow-[3px_0_0_0_rgba(34,197,94,0.3)] bg-gradient-to-r from-green-50 to-green-100';
+      default:
+        return 'shadow-[3px_0_0_0_rgba(156,163,175,0.3)] bg-gradient-to-r from-gray-50 to-gray-100';
+    }
+  };
+
   return (
-    <div className="flex flex-col gap-2 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 shadow-md hover:shadow-lg transition">
-      <p className="text-sm text-gray-500 tracking-tight">{title}</p>
-      <div className="flex items-center gap-2">
-        <div className="p-2 bg-white rounded-lg shadow-sm">
-          <Image src={iconSrc} alt={title} width={22} height={22} />
-        </div>
-        <p className="text-xl font-bold text-gray-900">{value}</p>
+    <div className={`price-info_card hover:shadow-md transition-all duration-300 group ${getShadowStyle(title)}`}>
+      <p className="text-black/70 tracking-tight">{title}</p>
+      <div className="flex gap-1">
+        <Image 
+          src={iconSrc} 
+          alt={title} 
+          width={24} 
+          height={24}
+          className="group-hover:scale-110 transition-transform duration-200"
+        />
+        <p className="text-2xl font-bold">{value}</p>
       </div>
     </div>
   );
