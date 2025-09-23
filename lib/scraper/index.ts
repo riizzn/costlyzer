@@ -87,7 +87,11 @@ export async function scrapeAmazonProduct(url: string) {
     };
     console.log(data);
     return data;
-  } catch (error) {
-    throw new Error(`Failed to scrape product: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to scrape product: ${error.message}`);
+    } else {
+      throw new Error("Failed to scrape product: Unknown error");
+    }
   }
 }
