@@ -23,17 +23,22 @@ const SearchBar = () => {
       return false;
     }
   };
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isValidLink = isValidAmazonProductURL(query);
     // here you are checking if it is even a URL
-    if (!isValidLink) setMessage("Enter a valid link.");
+    if (!isValidLink) {
+      setMessage("Enter a valid link.");
+      return;
+    }
 
     try {
       setIsLoading(true);
-     //scrape the product page 
-     const product= await scrapAndStoreProduct(query)
+      //scrape the product page
+      const product = await scrapAndStoreProduct(query);
     } catch (error) {
+      console.error("Scraping failed:", error);
+      setMessage("Something went wrong. Try again.");
     } finally {
       setIsLoading(false);
     }

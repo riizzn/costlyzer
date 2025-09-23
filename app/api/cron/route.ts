@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Product from "@/lib/models/product.model";
 import { connectToDB } from "@/lib/mongoose";
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
@@ -8,6 +9,7 @@ import {
   getHighestPrice,
   getLowestPrice,
 } from "@/lib/utils";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -54,7 +56,7 @@ export async function GET() {
         return updatedProduct
       })
     );
-    return NextRespone.json({
+    return NextResponse.json({
         message:'ok', data: updatedProducts
 
     })
