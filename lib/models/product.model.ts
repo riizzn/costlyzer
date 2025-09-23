@@ -8,12 +8,17 @@ const productSchema = new mongoose.Schema(
     title: { type: String, required: true },
     currentPrice: { type: Number, required: true },
     originalPrice: { type: Number, required: true },
-    priceHistory: [
-      {
-        price: { type: Number, required: true },
-        date: { type: Date, default: Date.now },
-      },
-    ],
+
+    priceHistory: {
+      type: [
+        {
+          price: { type: Number, required: true },
+          date: { type: Date, default: Date.now },
+        },
+      ],
+      default: [], 
+    },
+
     lowestPrice: { type: Number },
     highestPrice: { type: Number },
     averagePrice: { type: Number },
@@ -23,8 +28,11 @@ const productSchema = new mongoose.Schema(
     reviewsCount: { type: Number },
     stars: { type: Number },
     isOutOfStock: { type: Boolean, default: false },
-    users: [{ email: { type: String, required: true } }],
-    default: [],
+
+    users: {
+      type: [{ email: { type: String, required: true } }],
+      default: [], 
+    },
   },
   { timestamps: true }
 );
